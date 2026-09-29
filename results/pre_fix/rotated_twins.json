@@ -1,0 +1,40 @@
+{
+  "max_hamming": 24,
+  "orientations": [
+    "rot0",
+    "rot90",
+    "rot180",
+    "rot270",
+    "rot0+mirror",
+    "rot90+mirror",
+    "rot180+mirror",
+    "rot270+mirror"
+  ],
+  "counts": {
+    "val": {
+      "rot0": 0,
+      "rot90": 0,
+      "rot180": 16,
+      "rot270": 0,
+      "rot0+mirror": 14,
+      "rot90+mirror": 0,
+      "rot180+mirror": 14,
+      "rot270+mirror": 0,
+      "TOTAL with twin": 44,
+      "split size": 173
+    },
+    "test": {
+      "rot0": 0,
+      "rot90": 0,
+      "rot180": 36,
+      "rot270": 1,
+      "rot0+mirror": 41,
+      "rot90+mirror": 0,
+      "rot180+mirror": 22,
+      "rot270+mirror": 1,
+      "TOTAL with twin": 101,
+      "split size": 260
+    }
+  },
+  "distinct_train_twins": 118
+}

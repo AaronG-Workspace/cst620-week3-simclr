@@ -1,0 +1,31 @@
+{
+  "split": "val",
+  "threshold": 40,
+  "overall_1nn_acc": 0.8391,
+  "summary": [
+    {
+      "distance": "partner = nearest train image by random-init cosine",
+      "stratum": "near (<= 40)",
+      "val images": 35,
+      "1-NN acc": 1.0
+    },
+    {
+      "distance": "partner = nearest train image by random-init cosine",
+      "stratum": "clean (> 40)",
+      "val images": 139,
+      "1-NN acc": 0.7986
+    },
+    {
+      "distance": "nearest train image by 8-orient pHash (test strata rule)",
+      "stratum": "near (<= 40)",
+      "val images": 124,
+      "1-NN acc": 0.8468
+    },
+    {
+      "distance": "nearest train image by 8-orient pHash (test strata rule)",
+      "stratum": "clean (> 40)",
+      "val images": 50,
+      "1-NN acc": 0.82
+    }
+  ]
+}

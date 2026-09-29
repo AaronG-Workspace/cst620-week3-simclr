@@ -1,0 +1,75 @@
+{
+  "label": "CONTAMINATED minus clean (leakage estimate)",
+  "per_draw": [
+    {
+      "budget": "10",
+      "draw": 0,
+      "knn_acc_gap": -0.01538461538461533,
+      "probe_acc_gap": 0.0,
+      "auroc_gap": -0.006348619329388461
+    },
+    {
+      "budget": "25",
+      "draw": 0,
+      "knn_acc_gap": 0.0038461538461538325,
+      "probe_acc_gap": -0.023076923076923106,
+      "auroc_gap": -0.015409270216962478
+    },
+    {
+      "budget": "50",
+      "draw": 0,
+      "knn_acc_gap": 0.007692307692307776,
+      "probe_acc_gap": -0.05769230769230771,
+      "auroc_gap": -0.01306706114398426
+    },
+    {
+      "budget": "10",
+      "draw": 1,
+      "knn_acc_gap": 0.015384615384615441,
+      "probe_acc_gap": 0.03076923076923077,
+      "auroc_gap": 0.0083826429980276
+    },
+    {
+      "budget": "25",
+      "draw": 1,
+      "knn_acc_gap": 0.0038461538461538325,
+      "probe_acc_gap": 0.019230769230769162,
+      "auroc_gap": 0.026688856015779083
+    },
+    {
+      "budget": "50",
+      "draw": 1,
+      "knn_acc_gap": 0.0,
+      "probe_acc_gap": -0.02692307692307694,
+      "auroc_gap": -0.008136094674556116
+    },
+    {
+      "budget": "10",
+      "draw": 2,
+      "knn_acc_gap": -0.023076923076923106,
+      "probe_acc_gap": 0.023076923076923106,
+      "auroc_gap": -0.01041666666666674
+    },
+    {
+      "budget": "25",
+      "draw": 2,
+      "knn_acc_gap": -0.01538461538461533,
+      "probe_acc_gap": 0.0,
+      "auroc_gap": -0.015964003944773264
+    },
+    {
+      "budget": "50",
+      "draw": 2,
+      "knn_acc_gap": -0.007692307692307665,
+      "probe_acc_gap": -0.05384615384615388,
+      "auroc_gap": 0.002712031558185335
+    },
+    {
+      "budget": "all",
+      "draw": 0,
+      "knn_acc_gap": 0.0,
+      "probe_acc_gap": 0.0038461538461538325,
+      "auroc_gap": -0.005917159763313751
+    }
+  ]
+}

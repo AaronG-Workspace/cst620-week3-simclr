@@ -1,0 +1,4 @@
+# Keep hashed artifacts byte-for-byte (no line-ending conversion), so SHA-256 checks hold after a clone
+results/** -text
+sanitized/** -text
+*.ipynb -text

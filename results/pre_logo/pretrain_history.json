@@ -1,0 +1,92 @@
+{
+  "tag": "clean",
+  "config": {
+    "img_size": 96,
+    "batch_size": 64,
+    "tau": 0.5,
+    "lr": 0.001,
+    "epochs": 9,
+    "max_seconds": 450,
+    "sweep_epochs": 3,
+    "seed": 42,
+    "aug_seed": 123,
+    "knn_k": 5,
+    "pretrain_csv": "splits/pretrain.csv"
+  },
+  "batch_size": 64,
+  "negatives_per_anchor": 126,
+  "seconds_per_epoch": 41.3,
+  "full_spread_proj_std": 0.0884,
+  "history": [
+    {
+      "epoch": 0,
+      "loss": null,
+      "seconds": 0.0,
+      "val_knn_acc": 0.8448,
+      "proj_std": 0.0103
+    },
+    {
+      "epoch": 1,
+      "loss": 4.4373,
+      "seconds": 42.8,
+      "val_knn_acc": 0.7644,
+      "proj_std": 0.0712
+    },
+    {
+      "epoch": 2,
+      "loss": 3.9399,
+      "seconds": 44.4,
+      "val_knn_acc": 0.8161,
+      "proj_std": 0.0771
+    },
+    {
+      "epoch": 3,
+      "loss": 3.8285,
+      "seconds": 40.2,
+      "val_knn_acc": 0.8218,
+      "proj_std": 0.0742
+    },
+    {
+      "epoch": 4,
+      "loss": 3.7348,
+      "seconds": 42.7,
+      "val_knn_acc": 0.7874,
+      "proj_std": 0.0774
+    },
+    {
+      "epoch": 5,
+      "loss": 3.7068,
+      "seconds": 51.6,
+      "val_knn_acc": 0.8161,
+      "proj_std": 0.0786
+    },
+    {
+      "epoch": 6,
+      "loss": 3.6671,
+      "seconds": 40.7,
+      "val_knn_acc": 0.8103,
+      "proj_std": 0.0816
+    },
+    {
+      "epoch": 7,
+      "loss": 3.6669,
+      "seconds": 37.0,
+      "val_knn_acc": 0.8161,
+      "proj_std": 0.0797
+    },
+    {
+      "epoch": 8,
+      "loss": 3.6342,
+      "seconds": 36.6,
+      "val_knn_acc": 0.8046,
+      "proj_std": 0.0826
+    },
+    {
+      "epoch": 9,
+      "loss": 3.5941,
+      "seconds": 35.9,
+      "val_knn_acc": 0.7874,
+      "proj_std": 0.082
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+[run.py] removed stale results\tau_sweep.json (pre-fix copy is in results/pre_fix/)
+
+[run.py] === sweep tau 0.1: python train_ssl.py --sweep-tau 0.1
+pretrain [sweep tau 0.1]: 866 images, batch 64, 126 negatives per anchor, tau 0.1
+  epoch   0  loss    n/a  val_knn 0.6667  proj_std 0.0103  sec 0.0  (val_knn_loo 0.8448)
+  epoch   1  loss 4.3346  val_knn 0.6092  proj_std 0.0491  sec 42.3
+  epoch   2  loss 3.7177  val_knn 0.6092  proj_std 0.0784  sec 41.9
+  epoch   3  loss 3.4976  val_knn 0.5632  proj_std 0.0791  sec 38.0
+
+[run.py] === sweep tau 0.2: python train_ssl.py --sweep-tau 0.2
+pretrain [sweep tau 0.2]: 866 images, batch 64, 126 negatives per anchor, tau 0.2
+  epoch   0  loss    n/a  val_knn 0.6667  proj_std 0.0103  sec 0.0  (val_knn_loo 0.8448)
+  epoch   1  loss 4.3590  val_knn 0.6437  proj_std 0.0671  sec 41.4
+  epoch   2  loss 3.7866  val_knn 0.6494  proj_std 0.0735  sec 42.2
+  epoch   3  loss 3.5440  val_knn 0.5632  proj_std 0.0677  sec 38.9
+
+[run.py] === sweep tau 0.5: python train_ssl.py --sweep-tau 0.5
+pretrain [sweep tau 0.5]: 866 images, batch 64, 126 negatives per anchor, tau 0.5
+  epoch   0  loss    n/a  val_knn 0.6667  proj_std 0.0103  sec 0.0  (val_knn_loo 0.8448)
+  epoch   1  loss 4.4373  val_knn 0.5805  proj_std 0.0712  sec 39.8
+  epoch   2  loss 3.9399  val_knn 0.6379  proj_std 0.0771  sec 38.2
+  epoch   3  loss 3.8285  val_knn 0.5977  proj_std 0.0742  sec 40.5
+
+[run.py] === pick tau: python train_ssl.py --pick-tau
+
+tau sweep (3 epochs each, batch 64, 126 negatives per anchor)
+        val_knn ep0 val_knn final proj_std final loss final sec/epoch picked
+tau 0.1      0.6667        0.5632         0.0791     3.4976      40.7       
+tau 0.2      0.6667        0.5632         0.0677      3.544      40.8       
+tau 0.5      0.6667        0.5977         0.0742     3.8285      39.5    <--
+
+[run.py] === pretrain (full, last epoch kept): python train_ssl.py
+measured 40.4 s per epoch over 9 sweep epochs (max 42.3); 10 epochs ~ 434 s
+pretrain [clean]: 866 images, batch 64, 126 negatives per anchor, tau 0.5
+  epoch   0  loss    n/a  val_knn 0.6667  proj_std 0.0103  sec 0.0  (val_knn_loo 0.8448)
+  epoch   1  loss 4.4373  val_knn 0.5805  proj_std 0.0712  sec 43.8
+  epoch   2  loss 3.9399  val_knn 0.6379  proj_std 0.0771  sec 42.8
+  epoch   3  loss 3.8285  val_knn 0.5977  proj_std 0.0742  sec 41.9
+  epoch   4  loss 3.7348  val_knn 0.6264  proj_std 0.0774  sec 46.3
+  epoch   5  loss 3.7068  val_knn 0.6264  proj_std 0.0786  sec 42.2
+  epoch   6  loss 3.6671  val_knn 0.7299  proj_std 0.0816  sec 45.5
+  epoch   7  loss 3.6669  val_knn 0.6437  proj_std 0.0797  sec 39.9
+  epoch   8  loss 3.6342  val_knn 0.6724  proj_std 0.0826  sec 39.1
+  epoch   9  loss 3.5941  val_knn 0.6207  proj_std 0.0820  sec 43.6
+  epoch  10  loss 3.5790  val_knn 0.6954  proj_std 0.0808  sec 40.1
+wrote weights\ssl_encoder.pt
+wrote results\pretrain_history.json and results\pretrain_curve.png
+
+[run.py] === features: python baselines.py --features
+frozen features, 96 px, no augmentation (train and val only):
+  ssl     train (866, 512), val (174, 512)  8.6 s  -> results\feats_ssl.npz
+  random  train (866, 512), val (174, 512)  6.8 s  -> results\feats_random.npz
+
+[run.py] === tune (VAL): python baselines.py --tune
+
+VAL ONLY (tuning; these numbers chose the settings, so they are optimistic)
+encoder budget  draws         kNN acc       probe acc           AUROC false rej @95% rec       k              C        flag
+    ssl     10      3 0.738 +/- 0.033 0.713 +/- 0.025 0.792 +/- 0.008    0.705 +/- 0.053 10/5/10  0.01/0.1/10.0 kNN > probe
+    ssl     25      3 0.743 +/- 0.022 0.745 +/- 0.044 0.797 +/- 0.008    0.773 +/- 0.049  1/5/20 10.0/0.01/0.01            
+    ssl     50      3 0.711 +/- 0.019 0.761 +/- 0.038 0.751 +/- 0.018    0.826 +/- 0.020 20/5/20   1.0/10.0/0.1            
+    ssl    all      1 0.707 +/- 0.000 0.799 +/- 0.000 0.486 +/- 0.000    0.986 +/- 0.000       1           10.0            
+ random     10      3 0.732 +/- 0.027 0.688 +/- 0.031 0.596 +/- 0.039    0.894 +/- 0.034 10/5/10  10.0/10.0/0.1 kNN > probe
+ random     25      3 0.730 +/- 0.009 0.724 +/- 0.033 0.595 +/- 0.017    0.903 +/- 0.007 1/20/10  0.1/0.01/0.01 kNN > probe
+ random     50      3 0.732 +/- 0.007 0.724 +/- 0.031 0.562 +/- 0.005    0.821 +/- 0.151 20/1/20 0.01/0.01/0.01 kNN > probe
+ random    all      1 0.839 +/- 0.000 0.736 +/- 0.000 0.717 +/- 0.000    0.449 +/- 0.000       1            1.0 kNN > probe
+
+[run.py] === val report: python baselines.py --val-report
+budget                     10               25               50    all
+method                                                                
+SSL probe     0.713 +/- 0.025  0.745 +/- 0.044  0.761 +/- 0.038  0.799
+SSL k-NN      0.738 +/- 0.033  0.743 +/- 0.022  0.711 +/- 0.019  0.707
+random probe  0.688 +/- 0.031  0.724 +/- 0.033  0.724 +/- 0.031  0.736
+random k-NN   0.732 +/- 0.027  0.730 +/- 0.009  0.732 +/- 0.007  0.839
+supervised    0.713 +/- 0.041  0.688 +/- 0.076  0.749 +/- 0.028  0.885
+
+flags (VAL):
+  SSL, budget 10: k-NN beats probe by 2.5 points
+  random, budget 10: k-NN beats probe by 4.4 points
+  random, budget 25: k-NN beats probe by 0.6 points
+  random, budget 50: k-NN beats probe by 0.8 points
+  random, budget all: k-NN beats probe by 10.3 points
+wrote results\val_selection.md and results/val_budget_curve.png
+
+[run.py] stage timing
+   #  stage                               seconds    min  status
+   1  sweep tau 0.1                         136.8    2.3  ok
+   2  sweep tau 0.2                         135.4    2.3  ok
+   3  sweep tau 0.5                         130.3    2.2  ok
+   4  pick tau                                5.5    0.1  ok
+   5  pretrain (full, last epoch kept)      450.1    7.5  ok
+   6  features                               22.2    0.4  ok
+   7  tune (VAL)                              7.7    0.1  ok
+   8  val report                              7.5    0.1  ok
+      TOTAL                                 895.5   14.9
+
+[run.py] done through the VAL report. Stopped before freeze and eval: review results/val_selection.md first; eval.py scores test once, later.

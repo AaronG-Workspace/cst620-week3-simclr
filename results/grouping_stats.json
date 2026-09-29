@@ -1,0 +1,24 @@
+{
+  "n_images": 1300,
+  "group_setting": "256-bit 8-orient <= 24",
+  "settings": {
+    "64-bit <= 10": {
+      "images linked": 1283,
+      "multi-image groups": 22,
+      "largest group": 1183,
+      "groups mixing ok+defect": 3
+    },
+    "256-bit <= 24": {
+      "images linked": 241,
+      "multi-image groups": 106,
+      "largest group": 6,
+      "groups mixing ok+defect": 0
+    },
+    "256-bit 8-orient <= 24": {
+      "images linked": 685,
+      "multi-image groups": 184,
+      "largest group": 50,
+      "groups mixing ok+defect": 3
+    }
+  }
+}

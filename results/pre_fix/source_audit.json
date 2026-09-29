@@ -1,0 +1,36 @@
+{
+  "hash": "imagehash.phash hash_size=16 (256-bit)",
+  "max_hamming": 24,
+  "checks": [
+    {
+      "check": "provided test: MD5 match in provided train",
+      "count": 64,
+      "total": 715,
+      "pct": 9.0
+    },
+    {
+      "check": "provided test: 256-bit neighbor <= 24 in provided train",
+      "count": 330,
+      "total": 715,
+      "pct": 46.2
+    },
+    {
+      "check": "300 px (all): 256-bit neighbor <= 24 in 1,300 originals",
+      "count": 50,
+      "total": 7348,
+      "pct": 0.7
+    },
+    {
+      "check": "  of which provided train",
+      "count": 43,
+      "total": 6633,
+      "pct": 0.6
+    },
+    {
+      "check": "  of which provided test",
+      "count": 7,
+      "total": 715,
+      "pct": 1.0
+    }
+  ]
+}

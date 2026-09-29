@@ -1,0 +1,85 @@
+{
+  "frozen_at_utc": "2026-09-29T00:56:25+00:00",
+  "random_init_encoder": "resnet18(weights=None), torch.manual_seed(42); no file, rebuilt by seed",
+  "rule": "eval.py recomputes every sha256 and refuses to run if any differs",
+  "files": {
+    "ssl_encoder": {
+      "path": "weights\\ssl_encoder.pt",
+      "sha256": "a384c63c8a2d9137e6d8c652b0f94e65619fdfc83b35bfd7d6115e84e7357d8c"
+    },
+    "sup_10_0": {
+      "path": "weights\\sup_10_0.pt",
+      "lr": 0.0003,
+      "sha256": "772758502ebe43c9c651caee54eb55c5751ee7c1018788e672df020d5fd7c191"
+    },
+    "sup_10_1": {
+      "path": "weights\\sup_10_1.pt",
+      "lr": 0.0003,
+      "sha256": "1875039075cd9e2a1d66192c2e3a572fd5ab69b100eb28036d15608f1bb30023"
+    },
+    "sup_10_2": {
+      "path": "weights\\sup_10_2.pt",
+      "lr": 0.0003,
+      "sha256": "1e7795088064b822b1067554fd436cbf2f1f3e4d6dae131cb4d025627a1ecc84"
+    },
+    "sup_25_0": {
+      "path": "weights\\sup_25_0.pt",
+      "lr": 0.0001,
+      "sha256": "a50158d3cb14debd5c1ce12eb9fe4628ba48c7f536a821f021b92d711bdb418b"
+    },
+    "sup_25_1": {
+      "path": "weights\\sup_25_1.pt",
+      "lr": 0.0001,
+      "sha256": "6be9edef669a8df4fdfd948e39618e3bf9db66fb086af47ad376948ea07f96b9"
+    },
+    "sup_25_2": {
+      "path": "weights\\sup_25_2.pt",
+      "lr": 0.0001,
+      "sha256": "1aeec44f8128f70d0e3812b1a7f2192c32f8fabb71b6725e061bc2cdbac185a6"
+    },
+    "sup_50_0": {
+      "path": "weights\\sup_50_0.pt",
+      "lr": 0.0001,
+      "sha256": "5d3469aae734b6632b671bec8b7f9af1d92b64ffcb96e9372439a309d4b31909"
+    },
+    "sup_50_1": {
+      "path": "weights\\sup_50_1.pt",
+      "lr": 0.0001,
+      "sha256": "a4c08e866bff94c4a7c5d87e674ccd6de7a27d79c1ab736b3ff427a02b4bd05f"
+    },
+    "sup_50_2": {
+      "path": "weights\\sup_50_2.pt",
+      "lr": 0.0001,
+      "sha256": "3e3e319de8be3a30767aa589c5fe1785f3a56a654019febb57c598c33bd91c0c"
+    },
+    "sup_all_0": {
+      "path": "weights\\sup_all_0.pt",
+      "lr": 0.0001,
+      "sha256": "15619841259d066ba3ab22b1f956aba5662341e28c48e48d6c2fab280cc70255"
+    },
+    "budgets": {
+      "path": "splits\\budgets.json",
+      "sha256": "5658d621fff56fb060ff68091e1a8eb76084e2fa3d63e8064b1bce5dcf387955"
+    },
+    "frozen_choices": {
+      "path": "results\\frozen_choices.json",
+      "sha256": "551d07c4ff82c5f0039d0c0fed3caaf7a3ccc40cbe9c1739149021d59da4a45b"
+    },
+    "split_train": {
+      "path": "splits/train.csv",
+      "sha256": "c31674e18d118b4f115bdb845aa9c39ade4d50d3b105cf526474c83c2d6bc991"
+    },
+    "split_val": {
+      "path": "splits/val.csv",
+      "sha256": "f39dc129245156eebb3a9e5ebb88f9f9e7b87d858e8724a8f075617ccc8aee63"
+    },
+    "split_test": {
+      "path": "splits/test.csv",
+      "sha256": "fe8bb90e598eb8e5c8320d296b6f80cfc8db458b2ba6f1d702742c07c79ff273"
+    },
+    "split_pretrain": {
+      "path": "splits/pretrain.csv",
+      "sha256": "ff2e196fd017bdc0159d44dcfa46e688eeee33984e916b7924c21c9707e22513"
+    }
+  }
+}

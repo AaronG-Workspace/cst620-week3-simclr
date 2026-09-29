@@ -1,0 +1,100 @@
+{
+  "tag": "contaminated",
+  "config": {
+    "img_size": 96,
+    "batch_size": 64,
+    "tau": 0.5,
+    "lr": 0.001,
+    "epochs": 10,
+    "max_seconds": 780,
+    "sweep_epochs": 3,
+    "seed": 42,
+    "aug_seed": 123,
+    "knn_k": 5,
+    "pretrain_csv": "splits\\pretrain_contaminated.csv"
+  },
+  "batch_size": 64,
+  "negatives_per_anchor": 126,
+  "seconds_per_epoch": 53.6,
+  "full_spread_proj_std": 0.0884,
+  "history": [
+    {
+      "epoch": 0,
+      "loss": null,
+      "seconds": 0.0,
+      "val_knn": 0.6667,
+      "val_knn_loo": 0.8448,
+      "proj_std": 0.0103
+    },
+    {
+      "epoch": 1,
+      "loss": 4.4308,
+      "seconds": 57.6,
+      "val_knn": 0.6092,
+      "proj_std": 0.0699
+    },
+    {
+      "epoch": 2,
+      "loss": 3.9667,
+      "seconds": 61.7,
+      "val_knn": 0.6264,
+      "proj_std": 0.0794
+    },
+    {
+      "epoch": 3,
+      "loss": 3.8014,
+      "seconds": 50.7,
+      "val_knn": 0.6724,
+      "proj_std": 0.0817
+    },
+    {
+      "epoch": 4,
+      "loss": 3.7451,
+      "seconds": 48.6,
+      "val_knn": 0.6724,
+      "proj_std": 0.0836
+    },
+    {
+      "epoch": 5,
+      "loss": 3.6755,
+      "seconds": 54.3,
+      "val_knn": 0.6149,
+      "proj_std": 0.0828
+    },
+    {
+      "epoch": 6,
+      "loss": 3.6371,
+      "seconds": 50.1,
+      "val_knn": 0.6724,
+      "proj_std": 0.0819
+    },
+    {
+      "epoch": 7,
+      "loss": 3.6034,
+      "seconds": 51.2,
+      "val_knn": 0.592,
+      "proj_std": 0.0808
+    },
+    {
+      "epoch": 8,
+      "loss": 3.5886,
+      "seconds": 51.6,
+      "val_knn": 0.6034,
+      "proj_std": 0.0771
+    },
+    {
+      "epoch": 9,
+      "loss": 3.5684,
+      "seconds": 48.4,
+      "val_knn": 0.6034,
+      "proj_std": 0.0784
+    },
+    {
+      "epoch": 10,
+      "loss": 3.5242,
+      "seconds": 61.4,
+      "val_knn": 0.6149,
+      "proj_std": 0.0799
+    }
+  ]
+}

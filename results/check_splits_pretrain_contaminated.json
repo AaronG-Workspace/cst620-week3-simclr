@@ -1,0 +1,102 @@
+{
+  "pretrain_list": "splits/pretrain_contaminated.csv",
+  "split_sizes": {
+    "train": 866,
+    "val": 174,
+    "test": 260
+  },
+  "n_checks": 18,
+  "n_fail": 3,
+  "checks": [
+    {
+      "check": "path shared train/val",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "path shared train/test",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "path shared val/test",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "md5 shared train/val",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "md5 shared train/test",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "md5 shared val/test",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "group_id shared train/val",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "group_id shared train/test",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "group_id shared val/test",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "split paths missing from hashes.npz",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "8-orient pHash pairs <= 24 train/val",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "8-orient pHash pairs <= 24 train/test",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "8-orient pHash pairs <= 24 val/test",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "pretrain paths not in train",
+      "count": 260,
+      "status": "FAIL"
+    },
+    {
+      "check": "pretrain paths in val",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "pretrain paths in test",
+      "count": 260,
+      "status": "FAIL"
+    },
+    {
+      "check": "pretrain paths missing from hashes.npz",
+      "count": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "8-orient pHash pairs <= 24 pretrain/test",
+      "count": 512,
+      "status": "FAIL"
+    }
+  ]
+}

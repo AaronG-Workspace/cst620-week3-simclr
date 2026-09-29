@@ -1,0 +1,21 @@
+# Local machine paths (contain the local user folder); shared as sanitized/ copies instead
+data_path.txt
+splits/*.csv
+splits/budgets.json
+splits/pre_fix/
+results/test_strata.json
+results/contaminated/test_strata.json
+results/dry_run/val_strata.json
+
+# Feature and hash arrays (store absolute image paths)
+*.npz
+
+# Model weights (1.6 GB); SHA-256 of every frozen file is in results/frozen_manifest.json
+weights/
+
+# Instructor's assignment brief (not ours to publish)
+ASSIGNMENT.md
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/

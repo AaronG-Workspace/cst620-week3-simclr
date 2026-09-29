@@ -1,0 +1,42 @@
+[
+  {
+    "stage": "sweep tau 0.1",
+    "seconds": 136.8,
+    "status": "ok"
+  },
+  {
+    "stage": "sweep tau 0.2",
+    "seconds": 135.4,
+    "status": "ok"
+  },
+  {
+    "stage": "sweep tau 0.5",
+    "seconds": 130.3,
+    "status": "ok"
+  },
+  {
+    "stage": "pick tau",
+    "seconds": 5.5,
+    "status": "ok"
+  },
+  {
+    "stage": "pretrain (full, last epoch kept)",
+    "seconds": 450.1,
+    "status": "ok"
+  },
+  {
+    "stage": "features",
+    "seconds": 22.2,
+    "status": "ok"
+  },
+  {
+    "stage": "tune (VAL)",
+    "seconds": 7.7,
+    "status": "ok"
+  },
+  {
+    "stage": "val report",
+    "seconds": 7.5,
+    "status": "ok"
+  }
+]

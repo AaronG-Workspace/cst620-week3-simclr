@@ -1,0 +1,221 @@
+
+[run.py] === check_splits: python check_splits.py
+split sizes: train=866, val=174, test=260
+  PASS  path shared train/val                          0
+  PASS  path shared train/test                         0
+  PASS  path shared val/test                           0
+  PASS  md5 shared train/val                           0
+  PASS  md5 shared train/test                          0
+  PASS  md5 shared val/test                            0
+  PASS  group_id shared train/val                      0
+  PASS  group_id shared train/test                     0
+  PASS  group_id shared val/test                       0
+  PASS  split paths missing from hashes.npz            0
+  PASS  8-orient pHash pairs <= 24 train/val           0
+  PASS  8-orient pHash pairs <= 24 train/test          0
+  PASS  8-orient pHash pairs <= 24 val/test            0
+  pretrain list: 866 paths
+  PASS  pretrain paths not in train                    0
+  PASS  pretrain paths in val                          0
+  PASS  pretrain paths in test                         0
+
+PASS: all 16 checks passed for splits/pretrain.csv.
+[run.py] removed stale results\tau_sweep.json (pre-fix copy is in results/pre_fix/)
+
+[run.py] === sweep tau 0.1: python train_ssl.py --sweep-tau 0.1
+pretrain [sweep tau 0.1]: 866 images, batch 64, 126 negatives per anchor, tau 0.1
+  epoch   0  loss    n/a  val_knn 0.8448  proj_std 0.0103  sec 0.0
+  epoch   1  loss 4.3346  val_knn 0.7816  proj_std 0.0491  sec 45.7
+  epoch   2  loss 3.7177  val_knn 0.8046  proj_std 0.0784  sec 46.4
+  epoch   3  loss 3.4976  val_knn 0.7414  proj_std 0.0791  sec 38.2
+
+[run.py] === sweep tau 0.2: python train_ssl.py --sweep-tau 0.2
+pretrain [sweep tau 0.2]: 866 images, batch 64, 126 negatives per anchor, tau 0.2
+  epoch   0  loss    n/a  val_knn 0.8448  proj_std 0.0103  sec 0.0
+  epoch   1  loss 4.3590  val_knn 0.7759  proj_std 0.0671  sec 49.0
+  epoch   2  loss 3.7866  val_knn 0.7989  proj_std 0.0735  sec 51.1
+  epoch   3  loss 3.5440  val_knn 0.7471  proj_std 0.0677  sec 39.6
+
+[run.py] === sweep tau 0.5: python train_ssl.py --sweep-tau 0.5
+pretrain [sweep tau 0.5]: 866 images, batch 64, 126 negatives per anchor, tau 0.5
+  epoch   0  loss    n/a  val_knn 0.8448  proj_std 0.0103  sec 0.0
+  epoch   1  loss 4.4373  val_knn 0.7644  proj_std 0.0712  sec 38.8
+  epoch   2  loss 3.9399  val_knn 0.8161  proj_std 0.0771  sec 42.1
+  epoch   3  loss 3.8285  val_knn 0.8218  proj_std 0.0742  sec 38.7
+
+[run.py] === pick tau: python train_ssl.py --pick-tau
+
+tau sweep (3 epochs each, batch 64, 126 negatives per anchor)
+        val_knn ep0 val_knn final proj_std final loss final sec/epoch picked
+tau 0.1      0.8448        0.7414         0.0791     3.4976      43.4       
+tau 0.2      0.8448        0.7471         0.0677      3.544      46.6       
+tau 0.5      0.8448        0.8218         0.0742     3.8285      39.9    <--
+
+[run.py] === pretrain (full, last epoch kept): python train_ssl.py
+measured 43.3 s per epoch over 9 sweep epochs (max 51.1); 9 epochs ~ 418 s
+pretrain [clean]: 866 images, batch 64, 126 negatives per anchor, tau 0.5
+  epoch   0  loss    n/a  val_knn 0.8448  proj_std 0.0103  sec 0.0
+  epoch   1  loss 4.4373  val_knn 0.7644  proj_std 0.0712  sec 42.8
+  epoch   2  loss 3.9399  val_knn 0.8161  proj_std 0.0771  sec 44.4
+  epoch   3  loss 3.8285  val_knn 0.8218  proj_std 0.0742  sec 40.2
+  epoch   4  loss 3.7348  val_knn 0.7874  proj_std 0.0774  sec 42.7
+  epoch   5  loss 3.7068  val_knn 0.8161  proj_std 0.0786  sec 51.6
+  epoch   6  loss 3.6671  val_knn 0.8103  proj_std 0.0816  sec 40.7
+  epoch   7  loss 3.6669  val_knn 0.8161  proj_std 0.0797  sec 37.0
+  epoch   8  loss 3.6342  val_knn 0.8046  proj_std 0.0826  sec 36.6
+  epoch   9  loss 3.5941  val_knn 0.7874  proj_std 0.0820  sec 35.9
+wrote weights\ssl_encoder.pt
+wrote results\pretrain_history.json and results\pretrain_curve.png
+
+[run.py] === budgets.json: python baselines.py --budgets
+budget  draw  ok  defect  unique ids
+    10     0  10      10          20
+    25     0  25      25          50
+    50     0  50      50         100
+    10     1  10      10          20
+    25     1  25      25          50
+    50     1  50      50         100
+    10     2  10      10          20
+    25     2  25      25          50
+    50     2  50      50         100
+   all     0 346     520         866
+PASS: 0 IDs not in train.csv across 10 draws
+
+[run.py] === features: python baselines.py --features
+frozen features, 96 px, no augmentation (train and val only):
+  ssl     train (866, 512), val (174, 512)  7.9 s  -> results\feats_ssl.npz
+  random  train (866, 512), val (174, 512)  6.0 s  -> results\feats_random.npz
+
+[run.py] === tune (VAL): python baselines.py --tune
+
+VAL ONLY (tuning; these numbers chose the settings, so they are optimistic)
+encoder budget  draws         kNN acc       probe acc           AUROC false rej @95% rec       k              C        flag
+    ssl     10      3 0.732 +/- 0.018 0.711 +/- 0.007 0.788 +/- 0.004    0.662 +/- 0.056 10/1/10   0.1/0.1/0.01 kNN > probe
+    ssl     25      3 0.749 +/- 0.007 0.764 +/- 0.020 0.800 +/- 0.016    0.700 +/- 0.151  1/1/20 10.0/10.0/0.01            
+    ssl     50      3 0.718 +/- 0.017 0.738 +/- 0.022 0.736 +/- 0.012    0.913 +/- 0.031 1/10/20  0.1/10.0/0.01            
+    ssl    all      1 0.747 +/- 0.000 0.799 +/- 0.000 0.572 +/- 0.000    0.986 +/- 0.000       1           10.0            
+ random     10      3 0.732 +/- 0.027 0.688 +/- 0.031 0.596 +/- 0.039    0.894 +/- 0.034 10/5/10  10.0/10.0/0.1 kNN > probe
+ random     25      3 0.730 +/- 0.009 0.724 +/- 0.033 0.595 +/- 0.017    0.903 +/- 0.007 1/20/10  0.1/0.01/0.01 kNN > probe
+ random     50      3 0.732 +/- 0.007 0.724 +/- 0.031 0.562 +/- 0.005    0.821 +/- 0.151 20/1/20 0.01/0.01/0.01 kNN > probe
+ random    all      1 0.839 +/- 0.000 0.736 +/- 0.000 0.717 +/- 0.000    0.449 +/- 0.000       1            1.0 kNN > probe
+
+[run.py] === sup 10 lr 0.0001: python baselines.py --sup 10 --lr 0.0001
+  budget  10 draw 0  lr 0.0001  n= 20  val_acc 0.7241  best_epoch 17/25  stop early_stop    44.2 s  -> weights\sup_10_0_lr0.0001.pt
+
+[run.py] === sup 10 lr 0.0003: python baselines.py --sup 10 --lr 0.0003
+  budget  10 draw 0  lr 0.0003  n= 20  val_acc 0.7356  best_epoch 10/18  stop early_stop    31.1 s  -> weights\sup_10_0_lr0.0003.pt
+
+[run.py] === sup 10 lr 0.001: python baselines.py --sup 10 --lr 0.001
+  budget  10 draw 0  lr 0.001   n= 20  val_acc 0.6322  best_epoch  3/11  stop early_stop    22.6 s  -> weights\sup_10_0_lr0.001.pt
+
+[run.py] === sup 10 pick lr: python baselines.py --pick-lr 10
+budget 10: lr 0.0001 val 0.7241, lr 0.0003 val 0.7356, lr 0.001 val 0.6322  -> chosen lr 0.0003
+
+[run.py] === sup 10 draw 1: python baselines.py --sup 10 --draw 1
+  budget  10 draw 1  lr 0.0003  n= 20  val_acc 0.7471  best_epoch 27/35  stop early_stop    59.7 s  -> weights\sup_10_1.pt
+
+[run.py] === sup 10 draw 2: python baselines.py --sup 10 --draw 2
+  budget  10 draw 2  lr 0.0003  n= 20  val_acc 0.6552  best_epoch  4/12  stop early_stop    20.9 s  -> weights\sup_10_2.pt
+
+[run.py] === sup 25 lr 0.0001: python baselines.py --sup 25 --lr 0.0001
+  budget  25 draw 0  lr 0.0001  n= 50  val_acc 0.7356  best_epoch  2/10  stop early_stop    24.3 s  -> weights\sup_25_0_lr0.0001.pt
+
+[run.py] === sup 25 lr 0.0003: python baselines.py --sup 25 --lr 0.0003
+  budget  25 draw 0  lr 0.0003  n= 50  val_acc 0.7011  best_epoch  2/10  stop early_stop    24.7 s  -> weights\sup_25_0_lr0.0003.pt
+
+[run.py] === sup 25 lr 0.001: python baselines.py --sup 25 --lr 0.001
+  budget  25 draw 0  lr 0.001   n= 50  val_acc 0.7299  best_epoch  2/10  stop early_stop    25.0 s  -> weights\sup_25_0_lr0.001.pt
+
+[run.py] === sup 25 pick lr: python baselines.py --pick-lr 25
+budget 25: lr 0.0001 val 0.7356, lr 0.0003 val 0.7011, lr 0.001 val 0.7299  -> chosen lr 0.0001
+
+[run.py] === sup 25 draw 1: python baselines.py --sup 25 --draw 1
+  budget  25 draw 1  lr 0.0001  n= 50  val_acc 0.7471  best_epoch  2/10  stop early_stop    28.4 s  -> weights\sup_25_1.pt
+
+[run.py] === sup 25 draw 2: python baselines.py --sup 25 --draw 2
+  budget  25 draw 2  lr 0.0001  n= 50  val_acc 0.5805  best_epoch  1/ 9  stop early_stop    26.2 s  -> weights\sup_25_2.pt
+
+[run.py] === sup 50 lr 0.0001: python baselines.py --sup 50 --lr 0.0001
+  budget  50 draw 0  lr 0.0001  n=100  val_acc 0.7816  best_epoch 31/39  stop early_stop   142.6 s  -> weights\sup_50_0_lr0.0001.pt
+
+[run.py] === sup 50 lr 0.0003: python baselines.py --sup 50 --lr 0.0003
+  budget  50 draw 0  lr 0.0003  n=100  val_acc 0.7701  best_epoch 16/24  stop early_stop    95.4 s  -> weights\sup_50_0_lr0.0003.pt
+
+[run.py] === sup 50 lr 0.001: python baselines.py --sup 50 --lr 0.001
+  budget  50 draw 0  lr 0.001   n=100  val_acc 0.6897  best_epoch  2/10  stop early_stop    38.7 s  -> weights\sup_50_0_lr0.001.pt
+
+[run.py] === sup 50 pick lr: python baselines.py --pick-lr 50
+budget 50: lr 0.0001 val 0.7816, lr 0.0003 val 0.7701, lr 0.001 val 0.6897  -> chosen lr 0.0001
+
+[run.py] === sup 50 draw 1: python baselines.py --sup 50 --draw 1
+  budget  50 draw 1  lr 0.0001  n=100  val_acc 0.7126  best_epoch  1/ 9  stop early_stop    34.6 s  -> weights\sup_50_1.pt
+
+[run.py] === sup 50 draw 2: python baselines.py --sup 50 --draw 2
+  budget  50 draw 2  lr 0.0001  n=100  val_acc 0.7529  best_epoch 18/26  stop early_stop    98.6 s  -> weights\sup_50_2.pt
+
+[run.py] === sup all lr 0.0001: python baselines.py --sup all --lr 0.0001
+  budget all draw 0  lr 0.0001  n=866  val_acc 0.8851  best_epoch 18/20  stop max_epochs   440.4 s  -> weights\sup_all_0_lr0.0001.pt
+
+[run.py] === sup all lr 0.0003: python baselines.py --sup all --lr 0.0003
+  budget all draw 0  lr 0.0003  n=866  val_acc 0.8103  best_epoch 20/20  stop max_epochs   448.3 s  -> weights\sup_all_0_lr0.0003.pt
+
+[run.py] === sup all lr 0.001: python baselines.py --sup all --lr 0.001
+  budget all draw 0  lr 0.001   n=866  val_acc 0.8103  best_epoch  7/15  stop early_stop   339.6 s  -> weights\sup_all_0_lr0.001.pt
+
+[run.py] === sup all pick lr: python baselines.py --pick-lr all
+budget all: lr 0.0001 val 0.8851, lr 0.0003 val 0.8103, lr 0.001 val 0.8103  -> chosen lr 0.0001
+
+[run.py] === val report: python baselines.py --val-report
+budget                     10               25               50    all
+method                                                                
+SSL probe     0.711 +/- 0.007  0.764 +/- 0.020  0.738 +/- 0.022  0.799
+SSL k-NN      0.732 +/- 0.018  0.749 +/- 0.007  0.718 +/- 0.017  0.747
+random probe  0.688 +/- 0.031  0.724 +/- 0.033  0.724 +/- 0.031  0.736
+random k-NN   0.732 +/- 0.027  0.730 +/- 0.009  0.732 +/- 0.007  0.839
+supervised    0.713 +/- 0.041  0.688 +/- 0.076  0.749 +/- 0.028  0.885
+
+flags (VAL):
+  SSL, budget 10: k-NN beats probe by 2.1 points
+  random, budget 10: k-NN beats probe by 4.4 points
+  random, budget 25: k-NN beats probe by 0.6 points
+  random, budget 50: k-NN beats probe by 0.8 points
+  random, budget all: k-NN beats probe by 10.3 points
+wrote results\val_selection.md and results/val_budget_curve.png
+
+[run.py] stage timing
+   #  stage                               seconds    min  status
+   1  check_splits                            3.5    0.1  ok
+   2  sweep tau 0.1                         146.8    2.4  ok
+   3  sweep tau 0.2                         153.0    2.5  ok
+   4  sweep tau 0.5                         133.9    2.2  ok
+   5  pick tau                                5.7    0.1  ok
+   6  pretrain (full, last epoch kept)      393.2    6.6  ok
+   7  budgets.json                            5.4    0.1  ok
+   8  features                               19.4    0.3  ok
+   9  tune (VAL)                              6.7    0.1  ok
+  10  sup 10 lr 0.0001                       49.6    0.8  ok
+  11  sup 10 lr 0.0003                       36.3    0.6  ok
+  12  sup 10 lr 0.001                        30.3    0.5  ok
+  13  sup 10 pick lr                          5.0    0.1  ok
+  14  sup 10 draw 1                          64.8    1.1  ok
+  15  sup 10 draw 2                          26.3    0.4  ok
+  16  sup 25 lr 0.0001                       29.7    0.5  ok
+  17  sup 25 lr 0.0003                       30.0    0.5  ok
+  18  sup 25 lr 0.001                        30.4    0.5  ok
+  19  sup 25 pick lr                          5.1    0.1  ok
+  20  sup 25 draw 1                          33.6    0.6  ok
+  21  sup 25 draw 2                          32.7    0.5  ok
+  22  sup 50 lr 0.0001                      149.2    2.5  ok
+  23  sup 50 lr 0.0003                      100.9    1.7  ok
+  24  sup 50 lr 0.001                        44.2    0.7  ok
+  25  sup 50 pick lr                          5.7    0.1  ok
+  26  sup 50 draw 1                          39.7    0.7  ok
+  27  sup 50 draw 2                         104.1    1.7  ok
+  28  sup all lr 0.0001                     445.8    7.4  ok
+  29  sup all lr 0.0003                     454.1    7.6  ok
+  30  sup all lr 0.001                      345.0    5.8  ok
+  31  sup all pick lr                         5.4    0.1  ok
+  32  val report                              5.5    0.1  ok
+      TOTAL                                2941.0   49.0
+
+[run.py] done through the VAL report. Stopped before freeze and eval: review results/val_selection.md first; eval.py scores test once, later.

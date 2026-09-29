@@ -1,0 +1,871 @@
+{
+  "label": "TEST",
+  "split": "test",
+  "counts": {
+    "n": 260,
+    "ok": 104,
+    "defect": 156,
+    "majority": 0.6
+  },
+  "manifest_frozen_at": "2026-09-29T00:56:25+00:00",
+  "strata": {
+    "rule": "near = a test image whose nearest train image by random-init feature cosine is within 8-orientation 256-bit pHash distance <= 40; clean = every other test image.",
+    "threshold": 40,
+    "n_near": 58,
+    "n_clean": 202
+  },
+  "frozen_draws": [
+    {
+      "encoder": "ssl",
+      "budget": "10",
+      "draw": 0,
+      "knn": {
+        "k": 10,
+        "acc": 0.6307692307692307,
+        "recall_ok": 0.34615384615384615,
+        "recall_defect": 0.8205128205128205,
+        "acc_near": 0.5862068965517241,
+        "acc_clean": 0.6435643564356436
+      },
+      "probe": {
+        "C": 0.01,
+        "acc": 0.6192307692307693,
+        "recall_ok": 0.375,
+        "recall_defect": 0.782051282051282,
+        "acc_near": 0.5862068965517241,
+        "acc_clean": 0.6287128712871287
+      },
+      "anomaly": {
+        "option": 10,
+        "threshold": 0.3689594864845276,
+        "auroc": 0.7185650887573964,
+        "auroc_ci95_group": [
+          0.5921,
+          0.8695
+        ],
+        "auroc_near": 0.7103365384615385,
+        "auroc_clean": 0.7007478632478632,
+        "missed_defects": 2,
+        "false_rejects": 89,
+        "recall_defect": 0.9871794871794872,
+        "recall_ok": 0.14423076923076922
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "25",
+      "draw": 0,
+      "knn": {
+        "k": 1,
+        "acc": 0.6538461538461539,
+        "recall_ok": 0.49038461538461536,
+        "recall_defect": 0.7628205128205128,
+        "acc_near": 0.6206896551724138,
+        "acc_clean": 0.6633663366336634
+      },
+      "probe": {
+        "C": 10,
+        "acc": 0.7115384615384616,
+        "recall_ok": 0.5192307692307693,
+        "recall_defect": 0.8397435897435898,
+        "acc_near": 0.6896551724137931,
+        "acc_clean": 0.7178217821782178
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.36394187808036804,
+        "auroc": 0.7327416173570019,
+        "auroc_ci95_group": [
+          0.602,
+          0.8631
+        ],
+        "auroc_near": 0.6658653846153846,
+        "auroc_clean": 0.7274572649572649,
+        "missed_defects": 11,
+        "false_rejects": 79,
+        "recall_defect": 0.9294871794871795,
+        "recall_ok": 0.2403846153846154
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "50",
+      "draw": 0,
+      "knn": {
+        "k": 20,
+        "acc": 0.6038461538461538,
+        "recall_ok": 0.38461538461538464,
+        "recall_defect": 0.75,
+        "acc_near": 0.5517241379310345,
+        "acc_clean": 0.6188118811881188
+      },
+      "probe": {
+        "C": 1,
+        "acc": 0.7730769230769231,
+        "recall_ok": 0.6923076923076923,
+        "recall_defect": 0.8269230769230769,
+        "acc_near": 0.7586206896551724,
+        "acc_clean": 0.7772277227722773
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.38262709975242615,
+        "auroc": 0.7272559171597633,
+        "auroc_ci95_group": [
+          0.5981,
+          0.8737
+        ],
+        "auroc_near": 0.7067307692307692,
+        "auroc_clean": 0.7116452991452992,
+        "missed_defects": 2,
+        "false_rejects": 87,
+        "recall_defect": 0.9871794871794872,
+        "recall_ok": 0.16346153846153846
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "10",
+      "draw": 1,
+      "knn": {
+        "k": 5,
+        "acc": 0.6576923076923077,
+        "recall_ok": 0.5673076923076923,
+        "recall_defect": 0.717948717948718,
+        "acc_near": 0.6379310344827587,
+        "acc_clean": 0.6633663366336634
+      },
+      "probe": {
+        "C": 0.1,
+        "acc": 0.6230769230769231,
+        "recall_ok": 0.40384615384615385,
+        "recall_defect": 0.7692307692307693,
+        "acc_near": 0.5862068965517241,
+        "acc_clean": 0.6336633663366337
+      },
+      "anomaly": {
+        "option": 10,
+        "threshold": 0.3874911665916443,
+        "auroc": 0.683000493096647,
+        "auroc_ci95_group": [
+          0.5578,
+          0.829
+        ],
+        "auroc_near": 0.7079326923076922,
+        "auroc_clean": 0.6614316239316239,
+        "missed_defects": 4,
+        "false_rejects": 93,
+        "recall_defect": 0.9743589743589743,
+        "recall_ok": 0.10576923076923077
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "25",
+      "draw": 1,
+      "knn": {
+        "k": 5,
+        "acc": 0.6961538461538461,
+        "recall_ok": 0.5673076923076923,
+        "recall_defect": 0.782051282051282,
+        "acc_near": 0.6896551724137931,
+        "acc_clean": 0.698019801980198
+      },
+      "probe": {
+        "C": 0.01,
+        "acc": 0.6115384615384616,
+        "recall_ok": 0.3942307692307692,
+        "recall_defect": 0.7564102564102564,
+        "acc_near": 0.5517241379310345,
+        "acc_clean": 0.6287128712871287
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.32068243622779846,
+        "auroc": 0.672707100591716,
+        "auroc_ci95_group": [
+          0.5484,
+          0.8317
+        ],
+        "auroc_near": 0.6802884615384615,
+        "auroc_clean": 0.6567307692307692,
+        "missed_defects": 4,
+        "false_rejects": 92,
+        "recall_defect": 0.9743589743589743,
+        "recall_ok": 0.11538461538461539
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "50",
+      "draw": 1,
+      "knn": {
+        "k": 5,
+        "acc": 0.6884615384615385,
+        "recall_ok": 0.5865384615384616,
+        "recall_defect": 0.7564102564102564,
+        "acc_near": 0.6724137931034483,
+        "acc_clean": 0.693069306930693
+      },
+      "probe": {
+        "C": 10,
+        "acc": 0.75,
+        "recall_ok": 0.6346153846153846,
+        "recall_defect": 0.8269230769230769,
+        "acc_near": 0.6724137931034483,
+        "acc_clean": 0.7722772277227723
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.3509484529495239,
+        "auroc": 0.7016765285996055,
+        "auroc_ci95_group": [
+          0.5733,
+          0.8539
+        ],
+        "auroc_near": 0.7103365384615384,
+        "auroc_clean": 0.680982905982906,
+        "missed_defects": 0,
+        "false_rejects": 91,
+        "recall_defect": 1.0,
+        "recall_ok": 0.125
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "10",
+      "draw": 2,
+      "knn": {
+        "k": 10,
+        "acc": 0.6807692307692308,
+        "recall_ok": 0.4807692307692308,
+        "recall_defect": 0.8141025641025641,
+        "acc_near": 0.5862068965517241,
+        "acc_clean": 0.7079207920792079
+      },
+      "probe": {
+        "C": 10,
+        "acc": 0.6192307692307693,
+        "recall_ok": 0.3269230769230769,
+        "recall_defect": 0.8141025641025641,
+        "acc_near": 0.5689655172413793,
+        "acc_clean": 0.6336633663366337
+      },
+      "anomaly": {
+        "option": 10,
+        "threshold": 0.29427486658096313,
+        "auroc": 0.7128944773175543,
+        "auroc_ci95_group": [
+          0.58,
+          0.8667
+        ],
+        "auroc_near": 0.7151442307692308,
+        "auroc_clean": 0.693482905982906,
+        "missed_defects": 2,
+        "false_rejects": 79,
+        "recall_defect": 0.9871794871794872,
+        "recall_ok": 0.2403846153846154
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "25",
+      "draw": 2,
+      "knn": {
+        "k": 20,
+        "acc": 0.6923076923076923,
+        "recall_ok": 0.5769230769230769,
+        "recall_defect": 0.7692307692307693,
+        "acc_near": 0.6379310344827587,
+        "acc_clean": 0.7079207920792079
+      },
+      "probe": {
+        "C": 0.01,
+        "acc": 0.7038461538461539,
+        "recall_ok": 0.5961538461538461,
+        "recall_defect": 0.7756410256410257,
+        "acc_near": 0.6379310344827587,
+        "acc_clean": 0.7227722772277227
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.37399184703826904,
+        "auroc": 0.7387820512820513,
+        "auroc_ci95_group": [
+          0.6078,
+          0.8763
+        ],
+        "auroc_near": 0.703125,
+        "auroc_clean": 0.7268162393162393,
+        "missed_defects": 5,
+        "false_rejects": 80,
+        "recall_defect": 0.967948717948718,
+        "recall_ok": 0.23076923076923078
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "50",
+      "draw": 2,
+      "knn": {
+        "k": 20,
+        "acc": 0.6230769230769231,
+        "recall_ok": 0.40384615384615385,
+        "recall_defect": 0.7692307692307693,
+        "acc_near": 0.6206896551724138,
+        "acc_clean": 0.6237623762376238
+      },
+      "probe": {
+        "C": 0.1,
+        "acc": 0.6923076923076923,
+        "recall_ok": 0.5384615384615384,
+        "recall_defect": 0.7948717948717948,
+        "acc_near": 0.6896551724137931,
+        "acc_clean": 0.693069306930693
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.35694241523742676,
+        "auroc": 0.6991494082840237,
+        "auroc_ci95_group": [
+          0.5713,
+          0.8528
+        ],
+        "auroc_near": 0.7091346153846154,
+        "auroc_clean": 0.6778846153846154,
+        "missed_defects": 0,
+        "false_rejects": 93,
+        "recall_defect": 1.0,
+        "recall_ok": 0.10576923076923077
+      }
+    },
+    {
+      "encoder": "ssl",
+      "budget": "all",
+      "draw": 0,
+      "knn": {
+        "k": 1,
+        "acc": 0.7576923076923077,
+        "recall_ok": 0.625,
+        "recall_defect": 0.8461538461538461,
+        "acc_near": 0.7758620689655172,
+        "acc_clean": 0.7524752475247525
+      },
+      "probe": {
+        "C": 10,
+        "acc": 0.9115384615384615,
+        "recall_ok": 0.9038461538461539,
+        "recall_defect": 0.9166666666666666,
+        "acc_near": 0.9137931034482759,
+        "acc_clean": 0.9108910891089109
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.3433030843734741,
+        "auroc": 0.7062993096646943,
+        "auroc_ci95_group": [
+          0.577,
+          0.8619
+        ],
+        "auroc_near": 0.7091346153846154,
+        "auroc_clean": 0.6855769230769231,
+        "missed_defects": 2,
+        "false_rejects": 89,
+        "recall_defect": 0.9871794871794872,
+        "recall_ok": 0.14423076923076922
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "10",
+      "draw": 0,
+      "knn": {
+        "k": 10,
+        "acc": 0.6115384615384616,
+        "recall_ok": 0.2403846153846154,
+        "recall_defect": 0.8589743589743589,
+        "acc_near": 0.5172413793103449,
+        "acc_clean": 0.6386138613861386
+      },
+      "probe": {
+        "C": 10,
+        "acc": 0.5769230769230769,
+        "recall_ok": 0.5096153846153846,
+        "recall_defect": 0.6217948717948718,
+        "acc_near": 0.6379310344827587,
+        "acc_clean": 0.5594059405940595
+      },
+      "anomaly": {
+        "option": "centroid",
+        "threshold": 0.004641354084014893,
+        "auroc": 0.6691629684418146,
+        "auroc_ci95_group": [
+          0.5913,
+          0.7586
+        ],
+        "auroc_near": 0.6105769230769231,
+        "auroc_clean": 0.6860576923076923,
+        "missed_defects": 10,
+        "false_rejects": 84,
+        "recall_defect": 0.9358974358974359,
+        "recall_ok": 0.19230769230769232
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "25",
+      "draw": 0,
+      "knn": {
+        "k": 1,
+        "acc": 0.7115384615384616,
+        "recall_ok": 0.5480769230769231,
+        "recall_defect": 0.8205128205128205,
+        "acc_near": 0.7413793103448276,
+        "acc_clean": 0.7029702970297029
+      },
+      "probe": {
+        "C": 0.1,
+        "acc": 0.6653846153846154,
+        "recall_ok": 0.4807692307692308,
+        "recall_defect": 0.7884615384615384,
+        "acc_near": 0.6379310344827587,
+        "acc_clean": 0.6732673267326733
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.009320216253399849,
+        "auroc": 0.6860823471400395,
+        "auroc_ci95_group": [
+          0.5991,
+          0.7752
+        ],
+        "auroc_near": 0.6358173076923076,
+        "auroc_clean": 0.6981837606837606,
+        "missed_defects": 5,
+        "false_rejects": 91,
+        "recall_defect": 0.967948717948718,
+        "recall_ok": 0.125
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "50",
+      "draw": 0,
+      "knn": {
+        "k": 20,
+        "acc": 0.6384615384615384,
+        "recall_ok": 0.34615384615384615,
+        "recall_defect": 0.8333333333333334,
+        "acc_near": 0.603448275862069,
+        "acc_clean": 0.6485148514851485
+      },
+      "probe": {
+        "C": 0.01,
+        "acc": 0.7076923076923077,
+        "recall_ok": 0.5865384615384616,
+        "recall_defect": 0.7884615384615384,
+        "acc_near": 0.7413793103448276,
+        "acc_clean": 0.698019801980198
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.009424816817045212,
+        "auroc": 0.6889176528599605,
+        "auroc_ci95_group": [
+          0.6089,
+          0.7631
+        ],
+        "auroc_near": 0.6117788461538461,
+        "auroc_clean": 0.7073717948717949,
+        "missed_defects": 7,
+        "false_rejects": 86,
+        "recall_defect": 0.9551282051282052,
+        "recall_ok": 0.17307692307692307
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "10",
+      "draw": 1,
+      "knn": {
+        "k": 5,
+        "acc": 0.6153846153846154,
+        "recall_ok": 0.4519230769230769,
+        "recall_defect": 0.7243589743589743,
+        "acc_near": 0.5862068965517241,
+        "acc_clean": 0.6237623762376238
+      },
+      "probe": {
+        "C": 10,
+        "acc": 0.6307692307692307,
+        "recall_ok": 0.5769230769230769,
+        "recall_defect": 0.6666666666666666,
+        "acc_near": 0.6379310344827587,
+        "acc_clean": 0.6287128712871287
+      },
+      "anomaly": {
+        "option": 10,
+        "threshold": 0.008816170506179333,
+        "auroc": 0.6219797830374754,
+        "auroc_ci95_group": [
+          0.5225,
+          0.7019
+        ],
+        "auroc_near": 0.5492788461538463,
+        "auroc_clean": 0.643482905982906,
+        "missed_defects": 7,
+        "false_rejects": 92,
+        "recall_defect": 0.9551282051282052,
+        "recall_ok": 0.11538461538461539
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "25",
+      "draw": 1,
+      "knn": {
+        "k": 20,
+        "acc": 0.6307692307692307,
+        "recall_ok": 0.34615384615384615,
+        "recall_defect": 0.8205128205128205,
+        "acc_near": 0.5862068965517241,
+        "acc_clean": 0.6435643564356436
+      },
+      "probe": {
+        "C": 0.01,
+        "acc": 0.6807692307692308,
+        "recall_ok": 0.49038461538461536,
+        "recall_defect": 0.8076923076923077,
+        "acc_near": 0.6379310344827587,
+        "acc_clean": 0.693069306930693
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.00921256747096777,
+        "auroc": 0.6411489151873767,
+        "auroc_ci95_group": [
+          0.5593,
+          0.7294
+        ],
+        "auroc_near": 0.5865384615384615,
+        "auroc_clean": 0.6621794871794872,
+        "missed_defects": 10,
+        "false_rejects": 93,
+        "recall_defect": 0.9358974358974359,
+        "recall_ok": 0.10576923076923077
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "50",
+      "draw": 1,
+      "knn": {
+        "k": 1,
+        "acc": 0.7192307692307692,
+        "recall_ok": 0.6538461538461539,
+        "recall_defect": 0.7628205128205128,
+        "acc_near": 0.7068965517241379,
+        "acc_clean": 0.7227722772277227
+      },
+      "probe": {
+        "C": 0.01,
+        "acc": 0.6653846153846154,
+        "recall_ok": 0.4423076923076923,
+        "recall_defect": 0.8141025641025641,
+        "acc_near": 0.6379310344827587,
+        "acc_clean": 0.6732673267326733
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.009425878524780273,
+        "auroc": 0.6573594674556213,
+        "auroc_ci95_group": [
+          0.5788,
+          0.7448
+        ],
+        "auroc_near": 0.5901442307692308,
+        "auroc_clean": 0.6783119658119658,
+        "missed_defects": 12,
+        "false_rejects": 86,
+        "recall_defect": 0.9230769230769231,
+        "recall_ok": 0.17307692307692307
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "10",
+      "draw": 2,
+      "knn": {
+        "k": 10,
+        "acc": 0.65,
+        "recall_ok": 0.3942307692307692,
+        "recall_defect": 0.8205128205128205,
+        "acc_near": 0.5517241379310345,
+        "acc_clean": 0.6782178217821783
+      },
+      "probe": {
+        "C": 0.1,
+        "acc": 0.65,
+        "recall_ok": 0.40384615384615385,
+        "recall_defect": 0.8141025641025641,
+        "acc_near": 0.6551724137931034,
+        "acc_clean": 0.6485148514851485
+      },
+      "anomaly": {
+        "option": 5,
+        "threshold": 0.0075515033677220345,
+        "auroc": 0.6557569033530571,
+        "auroc_ci95_group": [
+          0.5806,
+          0.7586
+        ],
+        "auroc_near": 0.6057692307692308,
+        "auroc_clean": 0.6657051282051283,
+        "missed_defects": 9,
+        "false_rejects": 87,
+        "recall_defect": 0.9423076923076923,
+        "recall_ok": 0.16346153846153846
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "25",
+      "draw": 2,
+      "knn": {
+        "k": 10,
+        "acc": 0.6230769230769231,
+        "recall_ok": 0.4519230769230769,
+        "recall_defect": 0.7371794871794872,
+        "acc_near": 0.5862068965517241,
+        "acc_clean": 0.6336633663366337
+      },
+      "probe": {
+        "C": 0.01,
+        "acc": 0.6269230769230769,
+        "recall_ok": 0.4230769230769231,
+        "recall_defect": 0.7628205128205128,
+        "acc_near": 0.6206896551724138,
+        "acc_clean": 0.6287128712871287
+      },
+      "anomaly": {
+        "option": 20,
+        "threshold": 0.008469665423035622,
+        "auroc": 0.6209935897435898,
+        "auroc_ci95_group": [
+          0.5398,
+          0.7053
+        ],
+        "auroc_near": 0.546875,
+        "auroc_clean": 0.6444444444444445,
+        "missed_defects": 6,
+        "false_rejects": 89,
+        "recall_defect": 0.9615384615384616,
+        "recall_ok": 0.14423076923076922
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "50",
+      "draw": 2,
+      "knn": {
+        "k": 20,
+        "acc": 0.6269230769230769,
+        "recall_ok": 0.4230769230769231,
+        "recall_defect": 0.7628205128205128,
+        "acc_near": 0.603448275862069,
+        "acc_clean": 0.6336633663366337
+      },
+      "probe": {
+        "C": 0.01,
+        "acc": 0.6538461538461539,
+        "recall_ok": 0.4423076923076923,
+        "recall_defect": 0.7948717948717948,
+        "acc_near": 0.6206896551724138,
+        "acc_clean": 0.6633663366336634
+      },
+      "anomaly": {
+        "option": "all_ok",
+        "threshold": 0.009362838231027126,
+        "auroc": 0.6477440828402368,
+        "auroc_ci95_group": [
+          0.5659,
+          0.7327
+        ],
+        "auroc_near": 0.5817307692307693,
+        "auroc_clean": 0.6696581196581196,
+        "missed_defects": 11,
+        "false_rejects": 88,
+        "recall_defect": 0.9294871794871795,
+        "recall_ok": 0.15384615384615385
+      }
+    },
+    {
+      "encoder": "random",
+      "budget": "all",
+      "draw": 0,
+      "knn": {
+        "k": 1,
+        "acc": 0.8769230769230769,
+        "recall_ok": 0.8365384615384616,
+        "recall_defect": 0.9038461538461539,
+        "acc_near": 0.9482758620689655,
+        "acc_clean": 0.8564356435643564
+      },
+      "probe": {
+        "C": 1,
+        "acc": 0.7692307692307693,
+        "recall_ok": 0.6442307692307693,
+        "recall_defect": 0.8525641025641025,
+        "acc_near": 0.7758620689655172,
+        "acc_clean": 0.7673267326732673
+      },
+      "anomaly": {
+        "option": 1,
+        "threshold": 0.0032815933227539062,
+        "auroc": 0.9215976331360948,
+        "auroc_ci95_group": [
+          0.8553,
+          0.9673
+        ],
+        "auroc_near": 0.9543269230769231,
+        "auroc_clean": 0.9107905982905983,
+        "missed_defects": 16,
+        "false_rejects": 29,
+        "recall_defect": 0.8974358974358975,
+        "recall_ok": 0.7211538461538461
+      }
+    }
+  ],
+  "supervised": [
+    {
+      "budget": "10",
+      "draw": 0,
+      "lr": 0.0003,
+      "acc": 0.6153846153846154,
+      "recall_ok": 0.3173076923076923,
+      "recall_defect": 0.8141025641025641,
+      "acc_near": 0.5689655172413793,
+      "acc_clean": 0.6287128712871287
+    },
+    {
+      "budget": "10",
+      "draw": 1,
+      "lr": 0.0003,
+      "acc": 0.6615384615384615,
+      "recall_ok": 0.46153846153846156,
+      "recall_defect": 0.7948717948717948,
+      "acc_near": 0.6724137931034483,
+      "acc_clean": 0.6584158415841584
+    },
+    {
+      "budget": "10",
+      "draw": 2,
+      "lr": 0.0003,
+      "acc": 0.6307692307692307,
+      "recall_ok": 0.33653846153846156,
+      "recall_defect": 0.8269230769230769,
+      "acc_near": 0.6206896551724138,
+      "acc_clean": 0.6336633663366337
+    },
+    {
+      "budget": "25",
+      "draw": 0,
+      "lr": 0.0001,
+      "acc": 0.5884615384615385,
+      "recall_ok": 0.15384615384615385,
+      "recall_defect": 0.8782051282051282,
+      "acc_near": 0.43103448275862066,
+      "acc_clean": 0.6336633663366337
+    },
+    {
+      "budget": "25",
+      "draw": 1,
+      "lr": 0.0001,
+      "acc": 0.5807692307692308,
+      "recall_ok": 0.5096153846153846,
+      "recall_defect": 0.6282051282051282,
+      "acc_near": 0.5517241379310345,
+      "acc_clean": 0.5891089108910891
+    },
+    {
+      "budget": "25",
+      "draw": 2,
+      "lr": 0.0001,
+      "acc": 0.5230769230769231,
+      "recall_ok": 0.7788461538461539,
+      "recall_defect": 0.3525641025641026,
+      "acc_near": 0.5172413793103449,
+      "acc_clean": 0.5247524752475248
+    },
+    {
+      "budget": "50",
+      "draw": 0,
+      "lr": 0.0001,
+      "acc": 0.6923076923076923,
+      "recall_ok": 0.5961538461538461,
+      "recall_defect": 0.7564102564102564,
+      "acc_near": 0.6551724137931034,
+      "acc_clean": 0.7029702970297029
+    },
+    {
+      "budget": "50",
+      "draw": 1,
+      "lr": 0.0001,
+      "acc": 0.6384615384615384,
+      "recall_ok": 0.28846153846153844,
+      "recall_defect": 0.8717948717948718,
+      "acc_near": 0.5344827586206896,
+      "acc_clean": 0.6683168316831684
+    },
+    {
+      "budget": "50",
+      "draw": 2,
+      "lr": 0.0001,
+      "acc": 0.6730769230769231,
+      "recall_ok": 0.4326923076923077,
+      "recall_defect": 0.8333333333333334,
+      "acc_near": 0.6551724137931034,
+      "acc_clean": 0.6782178217821783
+    },
+    {
+      "budget": "all",
+      "draw": 0,
+      "lr": 0.0001,
+      "acc": 0.8346153846153846,
+      "recall_ok": 0.7115384615384616,
+      "recall_defect": 0.9166666666666666,
+      "acc_near": 0.8448275862068966,
+      "acc_clean": 0.8316831683168316
+    }
+  ],
+  "flags": [
+    "SSL, budget 10: k-NN beats probe by 3.6 points",
+    "SSL, budget 25: k-NN beats probe by 0.5 points",
+    "SSL, budget 50: probe beats k-NN by 10.0 points (> 10)",
+    "SSL, budget all: probe beats k-NN by 15.4 points (> 10)",
+    "random, budget 10: k-NN beats probe by 0.6 points",
+    "random, budget all: k-NN beats probe by 10.8 points"
+  ],
+  "embedding_quality": {
+    "SSL": {
+      "silhouette": 0.2077,
+      "davies_bouldin": 2.2066,
+      "n": 160
+    },
+    "random-init": {
+      "silhouette": 0.0382,
+      "davies_bouldin": 4.9085,
+      "n": 160
+    },
+    "supervised (all)": {
+      "silhouette": 0.243,
+      "davies_bouldin": 1.4819,
+      "n": 160
+    }
+  },
+  "bootstrap": {
+    "resamples": 1000,
+    "seed": 42,
+    "unit": "group_id"
+  }
+}

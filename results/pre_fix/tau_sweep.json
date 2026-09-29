@@ -1,0 +1,127 @@
+{
+  "runs": {
+    "0.1": {
+      "final_val_knn_acc": 0.6821,
+      "final_proj_std": 0.077,
+      "final_loss": 3.6904,
+      "seconds_per_epoch": 45.0,
+      "history": [
+        {
+          "epoch": 0,
+          "loss": null,
+          "seconds": 0.0,
+          "val_knn_acc": 0.7225,
+          "proj_std": 0.0103
+        },
+        {
+          "epoch": 1,
+          "loss": 4.4554,
+          "seconds": 47.7,
+          "val_knn_acc": 0.7168,
+          "proj_std": 0.0379
+        },
+        {
+          "epoch": 2,
+          "loss": 3.9221,
+          "seconds": 45.7,
+          "val_knn_acc": 0.6936,
+          "proj_std": 0.0673
+        },
+        {
+          "epoch": 3,
+          "loss": 3.6904,
+          "seconds": 41.5,
+          "val_knn_acc": 0.6821,
+          "proj_std": 0.077
+        }
+      ]
+    },
+    "0.2": {
+      "final_val_knn_acc": 0.7688,
+      "final_proj_std": 0.0755,
+      "final_loss": 3.8227,
+      "seconds_per_epoch": 40.3,
+      "history": [
+        {
+          "epoch": 0,
+          "loss": null,
+          "seconds": 0.0,
+          "val_knn_acc": 0.7225,
+          "proj_std": 0.0103
+        },
+        {
+          "epoch": 1,
+          "loss": 4.4606,
+          "seconds": 39.0,
+          "val_knn_acc": 0.7341,
+          "proj_std": 0.0478
+        },
+        {
+          "epoch": 2,
+          "loss": 4.0302,
+          "seconds": 39.4,
+          "val_knn_acc": 0.763,
+          "proj_std": 0.0752
+        },
+        {
+          "epoch": 3,
+          "loss": 3.8227,
+          "seconds": 42.4,
+          "val_knn_acc": 0.7688,
+          "proj_std": 0.0755
+        }
+      ]
+    },
+    "0.5": {
+      "final_val_knn_acc": 0.7457,
+      "final_proj_std": 0.0783,
+      "final_loss": 3.9982,
+      "seconds_per_epoch": 41.1,
+      "history": [
+        {
+          "epoch": 0,
+          "loss": null,
+          "seconds": 0.0,
+          "val_knn_acc": 0.7225,
+          "proj_std": 0.0103
+        },
+        {
+          "epoch": 1,
+          "loss": 4.5459,
+          "seconds": 40.0,
+          "val_knn_acc": 0.7457,
+          "proj_std": 0.0715
+        },
+        {
+          "epoch": 2,
+          "loss": 4.1927,
+          "seconds": 40.5,
+          "val_knn_acc": 0.7399,
+          "proj_std": 0.073
+        },
+        {
+          "epoch": 3,
+          "loss": 3.9982,
+          "seconds": 42.8,
+          "val_knn_acc": 0.7457,
+          "proj_std": 0.0783
+        }
+      ]
+    }
+  },
+  "config": {
+    "img_size": 96,
+    "batch_size": 64,
+    "lr": 0.001,
+    "epochs": 1,
+    "sweep_epochs": 3,
+    "seed": 42,
+    "aug_seed": 123,
+    "knn_k": 5,
+    "pretrain_csv": "splits/pretrain.csv"
+  },
+  "batch_size": 64,
+  "negatives_per_anchor": 126,
+  "best_tau": 0.2,
+  "rule": "max final val LOO k-NN (k=5, cosine); tie -> higher proj_std"
+}

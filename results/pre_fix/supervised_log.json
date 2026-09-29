@@ -1,0 +1,125 @@
+{
+  "config": {
+    "img_size": 96,
+    "batch_size": 32,
+    "lr": 0.001,
+    "patience": 8,
+    "max_epochs": 60,
+    "max_epochs_all": 20,
+    "seed": 42,
+    "aug_seed": 123,
+    "max_seconds": 450
+  },
+  "runs": {
+    "10_0": {
+      "budget": 10,
+      "draw": 0,
+      "n_labeled": 20,
+      "val_acc": 0.6358,
+      "best_epoch": 8,
+      "epochs_run": 16,
+      "stop": "early_stop",
+      "seconds": 34.4,
+      "sec_per_epoch": 2.15
+    },
+    "10_1": {
+      "budget": 10,
+      "draw": 1,
+      "n_labeled": 20,
+      "val_acc": 0.7168,
+      "best_epoch": 15,
+      "epochs_run": 23,
+      "stop": "early_stop",
+      "seconds": 48.1,
+      "sec_per_epoch": 2.09
+    },
+    "10_2": {
+      "budget": 10,
+      "draw": 2,
+      "n_labeled": 20,
+      "val_acc": 0.7052,
+      "best_epoch": 14,
+      "epochs_run": 22,
+      "stop": "early_stop",
+      "seconds": 46.5,
+      "sec_per_epoch": 2.11
+    },
+    "25_0": {
+      "budget": 25,
+      "draw": 0,
+      "n_labeled": 50,
+      "val_acc": 0.7168,
+      "best_epoch": 11,
+      "epochs_run": 19,
+      "stop": "early_stop",
+      "seconds": 58.8,
+      "sec_per_epoch": 3.1
+    },
+    "25_1": {
+      "budget": 25,
+      "draw": 1,
+      "n_labeled": 50,
+      "val_acc": 0.7457,
+      "best_epoch": 14,
+      "epochs_run": 22,
+      "stop": "early_stop",
+      "seconds": 69.8,
+      "sec_per_epoch": 3.17
+    },
+    "25_2": {
+      "budget": 25,
+      "draw": 2,
+      "n_labeled": 50,
+      "val_acc": 0.7168,
+      "best_epoch": 2,
+      "epochs_run": 10,
+      "stop": "early_stop",
+      "seconds": 31.7,
+      "sec_per_epoch": 3.17
+    },
+    "50_0": {
+      "budget": 50,
+      "draw": 0,
+      "n_labeled": 100,
+      "val_acc": 0.7514,
+      "best_epoch": 15,
+      "epochs_run": 23,
+      "stop": "early_stop",
+      "seconds": 92.0,
+      "sec_per_epoch": 4.0
+    },
+    "50_1": {
+      "budget": 50,
+      "draw": 1,
+      "n_labeled": 100,
+      "val_acc": 0.7341,
+      "best_epoch": 13,
+      "epochs_run": 21,
+      "stop": "early_stop",
+      "seconds": 80.1,
+      "sec_per_epoch": 3.81
+    },
+    "50_2": {
+      "budget": 50,
+      "draw": 2,
+      "n_labeled": 100,
+      "val_acc": 0.7572,
+      "best_epoch": 18,
+      "epochs_run": 26,
+      "stop": "early_stop",
+      "seconds": 99.7,
+      "sec_per_epoch": 3.83
+    },
+    "all_0": {
+      "budget": "all",
+      "draw": 0,
+      "n_labeled": 867,
+      "val_acc": 0.7514,
+      "best_epoch": 6,
+      "epochs_run": 14,
+      "stop": "early_stop",
+      "seconds": 343.0,
+      "sec_per_epoch": 24.5
+    }
+  }
+}

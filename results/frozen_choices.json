@@ -1,0 +1,481 @@
+{
+  "grids": {
+    "k": [
+      1,
+      5,
+      10,
+      20
+    ],
+    "C": [
+      0.01,
+      0.1,
+      1,
+      10
+    ],
+    "anomaly": [
+      1,
+      5,
+      10,
+      20,
+      "all_ok",
+      "centroid"
+    ]
+  },
+  "grid_note": "Anomaly grid widened AFTER seeing val: added 'all_ok' (mean cosine distance to all labeled ok embeddings) and 'centroid' (cosine distance to the labeled ok centroid). Reason, as observed on the pre_logo run: with the 'all' budget (346 ok refs), k in {1, 5, 10, 20} only measures local distance; every val image, ok or defect, has a near ok neighbor (median nearest-ok distance ratio defect/ok = 1.01), so SSL val AUROC fell to 0.57 while a global distance gave about 0.79. At 10 per class the chosen k = 10 already averaged over every ok ref, i.e. it was already a global score. Because the grid change was made after looking at val, val AUROC for the anomaly score is extra optimistic; the test run is the check.",
+  "rules": {
+    "knn_k": "max val accuracy, tie -> smaller k",
+    "probe_C": "max val accuracy, tie -> smaller C",
+    "anomaly_option": "max val AUROC, tie -> earlier option (k ascending, then all_ok, centroid)",
+    "threshold": "highest score threshold with val defect recall >= 0.95"
+  },
+  "encoders": {
+    "ssl": [
+      {
+        "budget": 10,
+        "draw": 0,
+        "n_labeled": 20,
+        "knn_k": 10,
+        "val_knn_acc": 0.7011494252873564,
+        "probe_C": 0.01,
+        "val_probe_acc": 0.6896551724137931,
+        "anomaly_option": 10,
+        "val_auroc": 0.8026224982746722,
+        "val_auroc_by_option": {
+          "1": 0.5274,
+          "5": 0.77,
+          "10": 0.8026,
+          "all_ok": 0.8026,
+          "centroid": 0.8026
+        },
+        "threshold": 0.3689594864845276,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.7101449275362319
+      },
+      {
+        "budget": 25,
+        "draw": 0,
+        "n_labeled": 50,
+        "knn_k": 1,
+        "val_knn_acc": 0.7126436781609196,
+        "probe_C": 10,
+        "val_probe_acc": 0.764367816091954,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.8064872325741891,
+        "val_auroc_by_option": {
+          "1": 0.5453,
+          "5": 0.6806,
+          "10": 0.7478,
+          "20": 0.7997,
+          "all_ok": 0.8065,
+          "centroid": 0.8065
+        },
+        "threshold": 0.36394187808036804,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.6956521739130435
+      },
+      {
+        "budget": 50,
+        "draw": 0,
+        "n_labeled": 100,
+        "knn_k": 20,
+        "val_knn_acc": 0.6896551724137931,
+        "probe_C": 1,
+        "val_probe_acc": 0.8103448275862069,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.8099378881987577,
+        "val_auroc_by_option": {
+          "1": 0.4374,
+          "5": 0.5035,
+          "10": 0.642,
+          "20": 0.7739,
+          "all_ok": 0.8099,
+          "centroid": 0.8099
+        },
+        "threshold": 0.38262709975242615,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.6956521739130435
+      },
+      {
+        "budget": 10,
+        "draw": 1,
+        "n_labeled": 20,
+        "knn_k": 5,
+        "val_knn_acc": 0.7298850574712644,
+        "probe_C": 0.1,
+        "val_probe_acc": 0.7011494252873564,
+        "anomaly_option": 10,
+        "val_auroc": 0.7839889579020014,
+        "val_auroc_by_option": {
+          "1": 0.4781,
+          "5": 0.7568,
+          "10": 0.784,
+          "all_ok": 0.784,
+          "centroid": 0.784
+        },
+        "threshold": 0.3874911665916443,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.6376811594202898
+      },
+      {
+        "budget": 25,
+        "draw": 1,
+        "n_labeled": 50,
+        "knn_k": 5,
+        "val_knn_acc": 0.7528735632183908,
+        "probe_C": 0.01,
+        "val_probe_acc": 0.6839080459770115,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.790200138026225,
+        "val_auroc_by_option": {
+          "1": 0.4679,
+          "5": 0.6574,
+          "10": 0.7228,
+          "20": 0.7855,
+          "all_ok": 0.7902,
+          "centroid": 0.7902
+        },
+        "threshold": 0.32068243622779846,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.6811594202898551
+      },
+      {
+        "budget": 50,
+        "draw": 1,
+        "n_labeled": 100,
+        "knn_k": 5,
+        "val_knn_acc": 0.735632183908046,
+        "probe_C": 10,
+        "val_probe_acc": 0.7528735632183908,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.7860593512767425,
+        "val_auroc_by_option": {
+          "1": 0.493,
+          "5": 0.6424,
+          "10": 0.6756,
+          "20": 0.7292,
+          "all_ok": 0.7861,
+          "centroid": 0.7861
+        },
+        "threshold": 0.3509484529495239,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.6956521739130435
+      },
+      {
+        "budget": 10,
+        "draw": 2,
+        "n_labeled": 20,
+        "knn_k": 10,
+        "val_knn_acc": 0.7816091954022989,
+        "probe_C": 10,
+        "val_probe_acc": 0.7471264367816092,
+        "anomaly_option": 10,
+        "val_auroc": 0.7886818495514147,
+        "val_auroc_by_option": {
+          "1": 0.6595,
+          "5": 0.768,
+          "10": 0.7887,
+          "all_ok": 0.7887,
+          "centroid": 0.7887
+        },
+        "threshold": 0.29427486658096313,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.7681159420289855
+      },
+      {
+        "budget": 25,
+        "draw": 2,
+        "n_labeled": 50,
+        "knn_k": 20,
+        "val_knn_acc": 0.764367816091954,
+        "probe_C": 0.01,
+        "val_probe_acc": 0.7873563218390804,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.81256038647343,
+        "val_auroc_by_option": {
+          "1": 0.4754,
+          "5": 0.6291,
+          "10": 0.7729,
+          "20": 0.8052,
+          "all_ok": 0.8126,
+          "centroid": 0.8126
+        },
+        "threshold": 0.37399184703826904,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.6956521739130435
+      },
+      {
+        "budget": 50,
+        "draw": 2,
+        "n_labeled": 100,
+        "knn_k": 20,
+        "val_knn_acc": 0.7068965517241379,
+        "probe_C": 0.1,
+        "val_probe_acc": 0.7183908045977011,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.7850931677018633,
+        "val_auroc_by_option": {
+          "1": 0.4044,
+          "5": 0.4208,
+          "10": 0.5492,
+          "20": 0.7489,
+          "all_ok": 0.7851,
+          "centroid": 0.7851
+        },
+        "threshold": 0.35694241523742676,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.7246376811594203
+      },
+      {
+        "budget": "all",
+        "draw": 0,
+        "n_labeled": 866,
+        "knn_k": 1,
+        "val_knn_acc": 0.7068965517241379,
+        "probe_C": 10,
+        "val_probe_acc": 0.7988505747126436,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.7866114561766735,
+        "val_auroc_by_option": {
+          "1": 0.4591,
+          "5": 0.4144,
+          "10": 0.4134,
+          "20": 0.4856,
+          "all_ok": 0.7866,
+          "centroid": 0.7866
+        },
+        "threshold": 0.3433030843734741,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.7391304347826086
+      }
+    ],
+    "random": [
+      {
+        "budget": 10,
+        "draw": 0,
+        "n_labeled": 20,
+        "knn_k": 10,
+        "val_knn_acc": 0.6954022988505747,
+        "probe_C": 10,
+        "val_probe_acc": 0.6436781609195402,
+        "anomaly_option": "centroid",
+        "val_auroc": 0.6068322981366459,
+        "val_auroc_by_option": {
+          "1": 0.5057,
+          "5": 0.5492,
+          "10": 0.6068,
+          "all_ok": 0.6068,
+          "centroid": 0.6068
+        },
+        "threshold": 0.004641354084014893,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.8695652173913043
+      },
+      {
+        "budget": 25,
+        "draw": 0,
+        "n_labeled": 50,
+        "knn_k": 1,
+        "val_knn_acc": 0.7183908045977011,
+        "probe_C": 0.1,
+        "val_probe_acc": 0.7528735632183908,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.62663906142167,
+        "val_auroc_by_option": {
+          "1": 0.5891,
+          "5": 0.5659,
+          "10": 0.5859,
+          "20": 0.6144,
+          "all_ok": 0.6266,
+          "centroid": 0.6266
+        },
+        "threshold": 0.009320216253399849,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.8985507246376812
+      },
+      {
+        "budget": 50,
+        "draw": 0,
+        "n_labeled": 100,
+        "knn_k": 20,
+        "val_knn_acc": 0.7241379310344828,
+        "probe_C": 0.01,
+        "val_probe_acc": 0.7586206896551724,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.5848171152518978,
+        "val_auroc_by_option": {
+          "1": 0.5673,
+          "5": 0.4758,
+          "10": 0.4747,
+          "20": 0.5336,
+          "all_ok": 0.5848,
+          "centroid": 0.5848
+        },
+        "threshold": 0.009424816817045212,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.8695652173913043
+      },
+      {
+        "budget": 10,
+        "draw": 1,
+        "n_labeled": 20,
+        "knn_k": 5,
+        "val_knn_acc": 0.7413793103448276,
+        "probe_C": 10,
+        "val_probe_acc": 0.7068965517241379,
+        "anomaly_option": 10,
+        "val_auroc": 0.5440993788819877,
+        "val_auroc_by_option": {
+          "1": 0.4509,
+          "5": 0.4814,
+          "10": 0.5441,
+          "all_ok": 0.5441,
+          "centroid": 0.5441
+        },
+        "threshold": 0.008816170506179333,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.9420289855072463
+      },
+      {
+        "budget": 25,
+        "draw": 1,
+        "n_labeled": 50,
+        "knn_k": 20,
+        "val_knn_acc": 0.7413793103448276,
+        "probe_C": 0.01,
+        "val_probe_acc": 0.7413793103448276,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.6234644582470669,
+        "val_auroc_by_option": {
+          "1": 0.4908,
+          "5": 0.4685,
+          "10": 0.506,
+          "20": 0.5983,
+          "all_ok": 0.6235,
+          "centroid": 0.6235
+        },
+        "threshold": 0.00921256747096777,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.8840579710144928
+      },
+      {
+        "budget": 50,
+        "draw": 1,
+        "n_labeled": 100,
+        "knn_k": 1,
+        "val_knn_acc": 0.7413793103448276,
+        "probe_C": 0.01,
+        "val_probe_acc": 0.7298850574712644,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.6190476190476191,
+        "val_auroc_by_option": {
+          "1": 0.4886,
+          "5": 0.4831,
+          "10": 0.5165,
+          "20": 0.5562,
+          "all_ok": 0.619,
+          "centroid": 0.619
+        },
+        "threshold": 0.009425878524780273,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.8695652173913043
+      },
+      {
+        "budget": 10,
+        "draw": 2,
+        "n_labeled": 20,
+        "knn_k": 10,
+        "val_knn_acc": 0.7586206896551724,
+        "probe_C": 0.1,
+        "val_probe_acc": 0.7126436781609196,
+        "anomaly_option": 5,
+        "val_auroc": 0.6374051069703244,
+        "val_auroc_by_option": {
+          "1": 0.6157,
+          "5": 0.6374,
+          "10": 0.6133,
+          "all_ok": 0.6133,
+          "centroid": 0.6133
+        },
+        "threshold": 0.0075515033677220345,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.8695652173913043
+      },
+      {
+        "budget": 25,
+        "draw": 2,
+        "n_labeled": 50,
+        "knn_k": 10,
+        "val_knn_acc": 0.7298850574712644,
+        "probe_C": 0.01,
+        "val_probe_acc": 0.6781609195402298,
+        "anomaly_option": 20,
+        "val_auroc": 0.5723947550034505,
+        "val_auroc_by_option": {
+          "1": 0.3992,
+          "5": 0.5002,
+          "10": 0.54,
+          "20": 0.5724,
+          "all_ok": 0.5709,
+          "centroid": 0.5709
+        },
+        "threshold": 0.008469665423035622,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.9130434782608695
+      },
+      {
+        "budget": 50,
+        "draw": 2,
+        "n_labeled": 100,
+        "knn_k": 20,
+        "val_knn_acc": 0.7298850574712644,
+        "probe_C": 0.01,
+        "val_probe_acc": 0.6839080459770115,
+        "anomaly_option": "all_ok",
+        "val_auroc": 0.6067632850241546,
+        "val_auroc_by_option": {
+          "1": 0.4029,
+          "5": 0.444,
+          "10": 0.5107,
+          "20": 0.5623,
+          "all_ok": 0.6068,
+          "centroid": 0.6068
+        },
+        "threshold": 0.009362838231027126,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.8985507246376812
+      },
+      {
+        "budget": "all",
+        "draw": 0,
+        "n_labeled": 866,
+        "knn_k": 1,
+        "val_knn_acc": 0.8390804597701149,
+        "probe_C": 1,
+        "val_probe_acc": 0.735632183908046,
+        "anomaly_option": 1,
+        "val_auroc": 0.7169082125603865,
+        "val_auroc_by_option": {
+          "1": 0.7169,
+          "5": 0.5604,
+          "10": 0.5168,
+          "20": 0.498,
+          "all_ok": 0.624,
+          "centroid": 0.624
+        },
+        "threshold": 0.0032815933227539062,
+        "val_defect_recall": 0.9523809523809523,
+        "val_false_reject_rate": 0.4492753623188406
+      }
+    ]
+  },
+  "test_strata": {
+    "rule": "near = a test image whose nearest train image by random-init feature cosine is within 8-orientation 256-bit pHash distance <= 40; clean = every other test image.",
+    "threshold": 40,
+    "encoder": "resnet18(weights=None), torch.manual_seed(42), fc = Identity, eval mode",
+    "features": "512-d encoder output, 96 px grayscale, fixed normalization (0.5, 0.5), no augmentation",
+    "nearest_train": "argmax cosine similarity over ALL train.csv images (866), not a label budget",
+    "distance": "min Hamming over 8 orientations, symmetric (data.d8_distance), from splits/hashes.npz",
+    "when": "eval.py computes the lists from test images and train features BEFORE it reads any test label, and saves them to results/test_strata.json",
+    "validation_evidence": "VAL, same rule: near 35 images at 1-NN acc 1.000, clean 139 at 0.799. Replaced the hash-only rule (min distance to any train image), which did not separate val: near 124 at 0.847, clean 50 at 0.820."
+  }
+}
